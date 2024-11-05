@@ -14,6 +14,7 @@ Here’s an outline to help structure a sales performance analysis project:
   
 
 2. Data Collection
+
 The main data sources for this analysis is the "Data Sales" file, which are open-source datasets.
 
 
@@ -30,6 +31,7 @@ The dataset includes the following fields:
 4. Tools Used
 
 - Excel: for data cleaning and visualization
+  
 - SQL: Applied for data cleaning through queries
 - PowerBI: Leveraged for both data cleaning and visualization
 
@@ -38,6 +40,28 @@ The dataset includes the following fields:
 - Handling missing variables
 - Data Cleaning and Formatting
 
+  ## Answers to the questions 
+
 Excel
 - Exploration of the sales data.
+![Screenshot  Excel](https://github.com/user-attachments/assets/13b17097-f4b9-40fa-8ff8-a5163df1192c)
+
+- Average sales per product
+  
+  AVERAGRIF
+```
+=AVERAGEIF(C2:C9922,C2,H2:H9922)
+```
+
+- Total revenue by region.
+  
+  SUMIF
+  ```
+  =SUMIF(D2:D9922,D2,H2:H9922)
+  ```
+
+  
+  
+
+
   
