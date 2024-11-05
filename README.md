@@ -84,7 +84,7 @@ Group By Product;
 
 ![Sql Qest1](https://github.com/user-attachments/assets/aa99d9ab-78f4-4e4e-840b-76b0800ec71e)
 
-o find the number of sales transactions in each region.
+o Find the number of sales transactions in each region.
 ```
 Select Region,
 Count(*) AS NumberofTransactions
@@ -94,4 +94,83 @@ Group By Region;
 
 ![Sql Qest2](https://github.com/user-attachments/assets/f9e18319-71ec-4ea1-b2a7-b52830b3a5d2)
 
+o Find the highest-selling product by total sales value.
+```
+Select Product,
+SUM(Quantity * UnitPrice) AS
+TotalSalesValue
+From [dbo].[Sales_Data ]
+Group By Product
+```
+
+![Sql Qest3](https://github.com/user-attachments/assets/1f940064-1ff8-41c9-9c5f-79fe61fbc59a)
+
+
+o Calculate total revenue per product. 
+
+```
+Select Product,
+SUM(Quantity * UnitPrice) AS
+TotalRevenue
+From [dbo].[Sales_Data ]
+Group By Product
+```
+![Sql Qest4](https://github.com/user-attachments/assets/d5d4a67b-9542-476b-8a7c-572bcbefc29a)
+
+o Calculate monthly sales totals for the current year. 
+
+```
+
+Select Month(orderdate) AS
+Month, SUM(quantity * UnitPrice) AS
+monthly_sales
+From [dbo].[Sales_Data ]
+Where Year(orderdate)= 
+Year(GETDATE())
+Group By Month(orderdate);
+```
+
+![Sql Qest5](https://github.com/user-attachments/assets/8b9fa0e1-01e0-4d14-87fa-48c5758b082d)
+
+
+o Find the top 5 customers by total purchase amount.
+
+```
+Select Top 5 [Customer_Id],
+SUM(quantity * UnitPrice) AS
+TotalPurchaseAmount
+From [dbo].[Sales_Data ]
+Group By [Customer_Id]
+Order By TotalPurchaseAmount DESC;
+```
+
+![Sql Qest6](https://github.com/user-attachments/assets/9df11552-6d61-4372-9e1a-ba1e8e7a4e04)
+
+o Calculate the percentage of total sales contributed by each region.
+```
+With TotalSales AS (
+Select SUM(quantity * UnitPrice) AS 
+TotalSalesAmount
+From [dbo].[Sales_Data ]
+)
+Select Region, SUM(quantity * UnitPrice) AS RegionSales,
+(SUM(quantity * UnitPrice) * 100.0)/ts.TotalSalesAmount AS PercentageContribution
+From [dbo].[Sales_Data ]
+CROSS JOIN TotalSales ts
+Group By Region,
+ts.TotalSalesAmount;
+```
+
+![Sql Qest7](https://github.com/user-attachments/assets/e807dcf7-9756-4126-a005-b3ba5c20e88e)
+
+o identify products with no sales in the last quarter
+```
+SELECT DISTINCT Product
+FROM [dbo].[Sales_Data ]
+WHERE Product NOT IN (
+SELECT Product
+FROM [dbo].[Sales_Data ]
+WHERE OrderDate >= DATEADD(QUARTER, -1, GETDATE())
+)
+```
 
