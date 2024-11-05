@@ -82,5 +82,15 @@ From [dbo].[Sales_Data ]
 Group By Product;
 ```
 
+![Sql Qest1](https://github.com/user-attachments/assets/aa99d9ab-78f4-4e4e-840b-76b0800ec71e)
 
-     
+o find the number of sales transactions in each region.
+```
+Select Region,
+Count(*) AS NumberofTransactions
+From [dbo].[Sales_Data ]
+Group By Region;
+```
+
+
+
