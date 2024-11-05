@@ -173,4 +173,4 @@ FROM [dbo].[Sales_Data ]
 WHERE OrderDate >= DATEADD(QUARTER, -1, GETDATE())
 )
 ```
-
+![Sql Qest8](https://github.com/user-attachments/assets/37369467-8582-4ab2-86b6-5db8a4e103c4)
