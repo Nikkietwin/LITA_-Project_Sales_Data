@@ -70,17 +70,17 @@ The dataset includes the following fields:
 
 ```
 Create Database CAPSTONE_PROJECT_SALES_DATA
+
 Select *from Sales_Data
 ```
 
-- Retrieve the total sales for each product category.
+o Retrieve the total sales for each product category.
   ```
-  Select Product, 
+Select Product, 
 SUM(Revenue) AS TotalSales
 From [dbo].[Sales_Data ]
 Group By Product;
 ```
-
 
 
      
