@@ -92,5 +92,6 @@ From [dbo].[Sales_Data ]
 Group By Region;
 ```
 
+![Sql Qest2](https://github.com/user-attachments/assets/f9e18319-71ec-4ea1-b2a7-b52830b3a5d2)
 
 
