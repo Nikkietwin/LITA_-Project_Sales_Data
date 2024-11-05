@@ -42,7 +42,7 @@ The dataset includes the following fields:
 
   ## Answers to the questions 
 
-Excel
+1. Excel
 - Exploration of the sales data.
 ![Screenshot  Excel](https://github.com/user-attachments/assets/13b17097-f4b9-40fa-8ff8-a5163df1192c)
 
@@ -63,6 +63,24 @@ Excel
   
   ![Excel](https://github.com/user-attachments/assets/69261ce0-0b01-42e5-ac34-54ca0b725a0b)
 
+---
+
+  2. SQL
+ Load the dataset into your SQL Server environment
+
+```
+Create Database CAPSTONE_PROJECT_SALES_DATA
+Select *from Sales_Data
+```
+
+- Retrieve the total sales for each product category.
+  ```
+  Select Product, 
+SUM(Revenue) AS TotalSales
+From [dbo].[Sales_Data ]
+Group By Product;
+```
 
 
-  
+
+     
